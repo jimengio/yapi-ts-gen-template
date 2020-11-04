@@ -1,0 +1,49 @@
+{
+  "name": "@beego/npm-platform-apps-apis",
+  "version": "0.1.8-a11",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "compile": "rm -rfv lib/* && tsc -d --project tsconfig-compile.json --outDir lib/",
+    "add-code": "git add .",
+    "gen": "yarn ts-node --project tsconfig-node.json generator/main.ts",
+    "mv": "mv ~/Downloads/swaggerApi.json generator/swagger-api.json"
+  },
+  "pre-commit": {
+    "run": [
+      "gen",
+      "compile",
+      "add-code"
+    ],
+    "silient": false
+  },
+  "keywords": [],
+  "author": "",
+  "private": true,
+  "devDependencies": {
+    "@types/lodash": "^4.14.161",
+    "@types/node": "^14.11.7",
+    "@types/prettier": "^2.1.1",
+    "@types/react": "^16.9.51",
+    "@types/swagger-schema-official": "^2.0.21",
+    "cson-parser": "^4.0.5",
+    "dayjs": "^1.9.1",
+    "immer": "^7.0.9",
+    "lodash": "^4.17.20",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.1.2",
+    "react": "^16.13.1",
+    "ts-node": "^9.0.0",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.0.3"
+  },
+  "peerDependencies": {
+    "react": "^16.12.0"
+  },
+  "dependencies": {
+    "@jimengio/api-base": "^0.3.7",
+    "@jimengio/yapi-ts-generator": "^0.0.4",
+    "query-string": "^6.13.5",
+    "use-deep-compare-effect": "^1.4.0"
+  }
+}
